@@ -47,7 +47,7 @@ funct: 000000</p>
  </details>
  
    <details>
-           <summary>  lw $t0 0x0060 $t2 </summary>
+           <summary>  j 0x1000 </summary>
            <p> 
  0x08001000
             
