@@ -1,6 +1,7 @@
 public class Assembler {
     public static void assembler(String assemble) {
         String[] parts = assemble.split(" ");
+        boolean is_check = false;
         boolean isR_type = false;
         boolean isI_type = false;
         boolean isJ_type = false;
@@ -41,8 +42,16 @@ public class Assembler {
 
         if (isR_type) {
             if (parts[0].equals("syscall")) {
+                is_check=true;
+                String num = "000000" + "00000" + "00000" + "00000" + "00000" + "001100";
+                String hex = Convert.BintoHex(num);
+                System.out.println("0x" + hex);
                 Prints.printR("R-Type", "000000", "00000", "00000", "00000", "00000", "001100");
             } else if (parts[0].equals("break")) {
+                is_check = true;
+                String num = "000000" + "00000" + "00000" + "00000" + "00000" + "001101";
+                String hex = Convert.BintoHex(num);
+                System.out.println("0x" + hex);
                 Prints.printR("R-Type", "000000", "00000", "00000", "00000", "00000", "001101");
             }
 
@@ -200,10 +209,12 @@ public class Assembler {
             }
             op = "000000";
 
-            String num = op + rs + rt + rd + shamt + Rfunc;
-            String hex = Convert.BintoHex(num);
-            System.out.println("0x" + hex);
-            Prints.printR("R-Type", op, rs, rt, rd, shamt, Rfunc);
+            if (!is_check){
+                String num = op + rs + rt + rd + shamt + Rfunc;
+                String hex = Convert.BintoHex(num);
+                System.out.println("0x" + hex);
+                Prints.printR("R-Type", op, rs, rt, rd, shamt, Rfunc);
+            }
 
         } // R_Type Done
 
