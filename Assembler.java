@@ -163,7 +163,6 @@ public class Assembler {
                 rs = "00000";
                 String bin = Integer.toBinaryString(Integer.parseInt(parts[3]));
                 size = bin.length();
-                System.out.println(bin);
                 int lenght = 5 - size;
                 for (int i = 0; i < lenght; i++) {
                     bin = "0" + bin;
@@ -180,7 +179,6 @@ public class Assembler {
                 rs = "00000";
                 String bin = Integer.toBinaryString(Integer.parseInt(parts[3]));
                 size = bin.length();
-                System.out.println(bin);
                 int lenght = 5 - size;
                 for (int i = 0; i < lenght; i++) {
                     bin = "0" + bin;
